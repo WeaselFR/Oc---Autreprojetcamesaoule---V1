@@ -22,8 +22,6 @@ fetch("http://localhost:5678/api/users/login", {
       if (data.token) {
         localStorage.setItem("token", data.token);
         window.location.href = "index.html";
-      } else {
-        alert("Erreur dans l'identifiant ou le mot de passe");
       }
     });
 });
