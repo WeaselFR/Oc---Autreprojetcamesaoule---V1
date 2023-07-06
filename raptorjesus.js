@@ -35,6 +35,6 @@ const getWorks = (id) => {
 //Ensuite, une sélection des éléments HTML avec la classe "btn" est effectuée et stockée dans la variable buttons.
 //Une boucle forEach est utilisée pour parcourir chaque bouton dans buttons.
 //Si l'id du bouton converti en entier est égal à l'id passé en paramètre, alors la classe "button-active" est ajoutée au bouton. Sinon, la classe "button-active" est supprimée du bouton.
-//Si la valeur de modal.style.display est "block" (c'est-à-dire si le modal est affiché), alors la fonction AddWorksGalleryModale est appelée avec les données JSON (dataJson) en argument.
+//Si la valeur de modal.style.display est "block" (si le modal est affiché), alors la fonction AddWorksGalleryModale est appelée avec les données JSON (dataJson) en argument.
 
 // "array" est une structure de données utilisée pour stocker et organiser une collection d'éléments
