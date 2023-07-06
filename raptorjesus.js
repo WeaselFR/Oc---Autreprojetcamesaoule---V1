@@ -11,7 +11,7 @@ const getWorks = (id) => {
         const dataForGallery = id === 0 ? dataJson : dataJson.filter(item => item.categoryId === id);
         addWorksGallery(dataForGallery);
         const buttons = document.getElementsByClassName("btn");
-        Arr.from(buttons).forEach(button => {
+        Array.from(buttons).forEach(button => {
           const buttonId = parseInt(button.id);
           if (buttonId === id) {
             button.classList.add("button-active");
