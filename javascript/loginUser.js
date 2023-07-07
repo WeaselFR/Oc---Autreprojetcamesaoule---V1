@@ -3,7 +3,7 @@ if (token) {
   window.location.href = "index.html";
 }
 
-const formLogin = document.querySelector("#formID");
+const formLogin = document.querySelector("#formLogin");
 
 formLogin.addEventListener("submit", (event) => {
   event.preventDefault();
