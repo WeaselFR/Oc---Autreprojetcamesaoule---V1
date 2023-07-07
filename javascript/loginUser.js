@@ -3,9 +3,9 @@ if (token) {
   window.location.href = "index.html";
 }
 
-const formId = document.querySelector("#formID");
+const formLogin = document.querySelector("#formID");
 
-Jesus.addEventListener("submit", (event) => {
+formLogin.addEventListener("submit", (event) => {
   event.preventDefault();
   const email = formLogin.email.value;
   const password = formLogin.password.value;
