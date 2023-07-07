@@ -3,7 +3,7 @@ if (token) {
   window.location.href = "index.html";
 }
 
-const Jesus = document.querySelector("#Jesus");
+const formId = document.querySelector("#formID");
 
 Jesus.addEventListener("submit", (event) => {
   event.preventDefault();
