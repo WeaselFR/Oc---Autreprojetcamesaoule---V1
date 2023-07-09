@@ -471,3 +471,71 @@ function addWork() {
   });
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************* ajout/suppression dans la modal 1 ****************/
+
+
+
+function AddWorksGalleryModale(data) {
+  const modalGallery = document.querySelector(".modal-gallery");
+
+  // On efface d'abord la galerie modal
+  let child = modalGallery.lastElementChild;
+  while (child) {
+    modalGallery.removeChild(child);
+    child = modalGallery.lastElementChild;
+  }
+
+  // Ensuite, on injecte les projets dans la modal
+  data.forEach((element) => {
+    // Création de la figure pour chaque projet
+    const figure = `
+      <figure id="${element.id}Modal" class="figure-modal">
+        <img class="trash-icon" id="${element.id}" src="./assets/icons/trash-icon.svg" alt="">
+        <img class="img-modal" src=${element.imageUrl} alt=${element.title}>
+        <figcaption class="figcaption-modal">éditer</figcaption>
+      </figure>`;
+
+    // Ajout de la figure à la galerie modal
+    modalGallery.innerHTML += figure;
+  });
+
+  // Gestion de la suppression de projet
+  const trashWork = document.querySelectorAll(".trash-icon");
+  const token = localStorage.token;
+
+  trashWork.forEach((element) => {
+    element.addEventListener("click", () => {
+      /* Suppression du projet depuis l'API */
+      fetch(`http://localhost:5678/api/works/${element.id}`, {
+        method: "DELETE",
+        headers: {
+          accept: "*/*",
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(() => {
+          // Actualisation de la galerie après la suppression
+          getWorks(0);
+        })
+        .catch(() => {
+          console.log("Une erreur s'est produite lors de la suppression");
+        });
+    });
+  });
+}

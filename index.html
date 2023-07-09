@@ -7,25 +7,43 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/555b6ea9b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>
-		<ul>
-			<li>Projets</li>
-			<li>Contact</li>
-			<li><a class="logout" href="login.html">login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
-</header>
+	<div class="editionMode">
+		<a class="mode-edition"><i class="fa-regular fa-pen-to-square fa-lg"></i>Mode édition</a>
+		<button class="button-edition">publier les changements</button>
+	</div>
+
+	<div id="modal">
+		<div class="modalContainer">
+
+		
+	    </div>
+	</div>
+    <header>
+	
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+				<li><a href=#portfolio>projets</a></li>
+				<li><a href=#contact>contact</a></li>
+				<li><a class="logout" href=login.html>login</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	
+    </header>
 <main>
 	<section id="introduction">
-		<figure>
+		<figure class="image-intro">
 			<img src="./assets/images/sophie-bluel.png" alt="">
+			<button class="modifier2 modifier"><i class="fa-regular fa-pen-to-square fa-lg"></i>modifier</button>
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -35,11 +53,17 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-
-		<div class="gallery">
+		<div class="projets">
+			<h2>Mes Projets</h2>
+			<button class="modifier" id="button-modifier"><i class="fa-regular fa-pen-to-square fa-lg"></i>modifier</button>
+		</div>
+		<div class="filters">
+			
 		</div>
 
+		<div class="gallery">
+			
+		</div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -63,6 +87,8 @@
 		</ul>
 	</nav>
 </footer>
-<script src="./javascript/gallery.js"></script>
+
+<script src="script.js"></script>
+
 </body>
 </html>
