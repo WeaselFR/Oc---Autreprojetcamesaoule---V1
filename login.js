@@ -1,7 +1,6 @@
 const token= localStorage.getItem("token");
 if (token ){window.location.href = "index.html";}
 
-
 const formLogin = document.querySelector("#formLogin");
 
 formLogin.addEventListener("submit", (event) => {

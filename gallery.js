@@ -1,6 +1,9 @@
 const modal = document.querySelector("#modal");
+
 const gallery = document.querySelector(".gallery");
+
 let data =[];
+
 const getWorks = (id) => {
   fetch("http://localhost:5678/api/works")
   .then(function (response) {
