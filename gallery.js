@@ -75,7 +75,6 @@ const getCategories = () => {
     
     addButton(dataCategories)
   })
-  .catch(()=>{console.log("erreur lors de la recuperation des categories ")});
 
 function addButton(categories) {
 
@@ -328,10 +327,6 @@ function showModalTwo (){
                     gallery.innerHTML = "";
                     
                     getWorks(0); 
-                  })
-                .catch ((error)=> {
-                    
-                    console.log("Il y a eu une erreur sur le Fetch: " + error)
                 });
             }
             const modalContainer = document.querySelector(".modalContainer")
@@ -341,11 +336,6 @@ function showModalTwo (){
                 child = modalContainer.lastElementChild;
             }
             modal.style.display ="none";
-           
-
-        } else {
-            msgError.innerText = "Veuillez remplir tous les champs et/ou respectez le format image jpg ou png";
-            console.log("erreur lors de l'ajout d'un projet");
         }
         
     });
@@ -383,9 +373,6 @@ function AddWorksGalleryModale(data) {
                   Authorization: `Bearer ${token}`
               }
            })
-           .then (()=> { getWorks(0)})
-           .catch (()=>{console.log("une erreur s'est produite lors de la supression")});
-
           });      
     });  
 }
