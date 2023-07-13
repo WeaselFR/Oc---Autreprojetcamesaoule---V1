@@ -242,7 +242,6 @@ function showModalTwo (){
       <button type="submit" class="valider">Valider</button>
     </form>
     </div>
-    <p class="msg-error"></p>
   </div>`;
 
   modalContainer.innerHTML = divModal2;
@@ -272,7 +271,6 @@ function showModalTwo (){
   const addTitle = document.querySelector(".title")
   const addCategory = document.querySelector(".category")
   const buttonSubmit = document.querySelector(".valider")
-  const msgError = document.querySelector(".msg-error")
   const form = document.querySelector(".form-modal2")
   let sourcePicture = "";
 
@@ -293,7 +291,6 @@ function showModalTwo (){
              addTitle.value !== "" && addCategory.value !== "") {
             buttonSubmit.style.background = "#1D6154";
             buttonSubmit.style.cursor = "pointer";
-            msgError.innerText = "";
             
         }
        else { 
