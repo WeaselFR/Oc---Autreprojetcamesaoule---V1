@@ -36,7 +36,6 @@ const getWorks = (id) => {
         AddWorksGalleryModale(data);   }
     
   })
-  .catch (()=>{console.log("Une erreur s'est produite lors de la recuperation des données")});
 }
 getWorks(0); 
 
