@@ -19,8 +19,6 @@ formLogin.addEventListener("submit", (event) => {
       if (data.token) {
         localStorage.setItem("token", data.token);
         window.location.href = "index.html";
-      } else {
-        alert( "Erreur dans l’identifiant ou le mot de passe");
       }
     });
 });
