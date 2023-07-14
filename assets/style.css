@@ -267,39 +267,6 @@ nav a:hover {
   height: 384px;
 }
 
-/*editor mode*/
-.editionMode {
-  background-color: black;
-  height: 59px;
-  width: 100%;
-  color: white;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  z-index: 50;
-}
-
-.button-edition {
-  font-family: 'Work Sans';
-  font-size: 14px;
-  font-weight: 600;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 60px;
-  padding: 8px 23px;
-  cursor: pointer;
-}
-
-a.mode-edition {
-  font-family: 'Work Sans';
-  display: flex;
-  gap: 10px;
-  font-size: 14px;
-  font-weight: 400;
-  align-items: center;
-}
-
 .projets {
   display: flex;
   flex-direction: row;
@@ -312,27 +279,13 @@ button.modifier {
 
   border: none;
   background: white;
-  display: none;
+  display: inline-block;
   align-items: center;
   gap: 10px;
   font-family: 'Work Sans';
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
-}
-
-button.modifier2 {
-  border: none;
-  background: white;
-  display: none;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Work Sans';
-  font-size: 14px;
-  font-weight: 400;
-  cursor: pointer;
-  margin-left: -6px;
-  margin-top: 14px;
 }
 
 .image-intro a.modifier {
