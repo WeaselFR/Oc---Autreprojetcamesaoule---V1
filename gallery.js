@@ -1,54 +1,30 @@
 const getWorks = (id) => {
   fetch("http://localhost:5678/api/works")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (dataJson) {
-      console.log(dataJson);
+    .then(response => response.json())
+    .then(dataJson => {
       data = dataJson;
-      let dataForGallery = [];
-      if (id === 0) {
-        dataForGallery = dataJson;
-      } else {
-        for (let i = 0; i < dataJson.length; i++) {
-          if (id === dataJson[i].categoryId) {
-            dataForGallery.push(dataJson[i]);
-          }
-        }
-      }
-
+      const dataForGallery = (id === 0) ? dataJson : dataJson.filter(item => item.categoryId === id);
       addWorksGallery(dataForGallery);
 
-      const buttons = document.getElementsByClassName("btn");
-      for (let i = 0; i < buttons.length; i++) {
-        if (parseInt(buttons[i].id) === id) {
-          buttons[i].classList.add("button-active");
-        } else {
-          buttons[i].classList.remove("button-active");
-        }
-      }
+      Array.from(document.getElementsByClassName("btn")).forEach(button => {
+        button.classList.toggle("button-active", parseInt(button.id) === id);
+      });
 
       if (modal.style.display === "block") {
         addWorksGalleryModal(data);
       }
     });
 };
+
 getWorks(0);
 
 function addWorksGallery(data) {
-  let child = gallery.lastElementChild;
-  while (child) {
-    gallery.removeChild(child);
-    child = gallery.lastElementChild;
-  }
-
-  data.forEach((element) => {
-    const figure = `<figure id="${element.id}Gallery">
+  gallery.innerHTML = data.map(element => `
+    <figure id="${element.id}Gallery">
       <img src="${element.imageUrl}" alt="${element.title}">
       <figcaption>${element.title}</figcaption>
-    </figure>`;
-    gallery.innerHTML += figure;
-  });
+    </figure>
+  `).join("");
 }
 
 let saveCategories = [];
@@ -56,36 +32,22 @@ const allButton = document.querySelector(".filters");
 
 const getCategories = () => {
   fetch("http://localhost:5678/api/categories")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (dataCategories) {
-      for (let i = 0; i < dataCategories.length; i++) {
-        if (dataCategories[i].id > 0) {
-          saveCategories.push(dataCategories[i]);
-        }
-      }
-
+    .then(response => response.json())
+    .then(dataCategories => {
+      const filteredCategories = dataCategories.filter(category => category.id > 0);
+      saveCategories.push(...filteredCategories);
       addButton(dataCategories);
     });
 };
 
 function addButton(categories) {
-  categories.push({ id: 0, name: "Tous" });
+  const sortedCategories = [...categories, { id: 0, name: "Tous" }].sort((a, b) => a.id - b.id);
 
-  categories.sort((a, b) => a.id - b.id);
-
-  categories.forEach((category) => {
+  sortedCategories.forEach(category => {
     const button = document.createElement("button");
-
-    if (category.id === 0) {
-      button.className = "button-active btn";
-    } else {
-      button.className = "btn";
-    }
+    button.className = (category.id === 0) ? "button-active btn" : "btn";
     button.id = category.id;
     button.innerHTML = category.name;
-
     button.addEventListener("click", () => filterWorks(category.id));
     allButton.appendChild(button);
   });
@@ -109,7 +71,6 @@ modal.style.display = "none";
 if (dataStorage) {
   logOut.textContent = "logout";
 
-  buttonFilters.style.display = "none";
   gallery.style.marginTop = "90px";
 
   buttonModifier.style.display = "flex";

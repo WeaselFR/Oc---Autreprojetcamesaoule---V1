@@ -288,6 +288,10 @@ button.modifier {
   cursor: pointer;
 }
 
+.modifier2 {
+  margin-top: 25px;
+}
+
 .image-intro a.modifier {
 
   margin-top: 15px;
@@ -602,10 +606,11 @@ button.modifier {
 }
 
 /* filtre */
+
 .filters {
   display: flex;
   width: 70%;
-  margin-bottom: 50px;
+  margin-bottom: 1px;
   margin-top: 50px;
   justify-content: center;
   gap: 10px;
